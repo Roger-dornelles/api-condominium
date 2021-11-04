@@ -28,7 +28,7 @@ Api contara com as rotas:
 
 Para testar a API:
 
-1️⃣ No prompt de comando( cmd ) fazer o comando git clone 
+1️⃣ No prompt de comando( cmd ) fazer o comando git clone https://github.com/Roger-dornelles/api-condominium
 
 2️⃣ Após fazer o clone do projeto no VScode no terminal instalar as dependencias do projeto npm install ou yarn add / no prompt de comando ou cmd fazer a instalação das dependencias do projeto.
 

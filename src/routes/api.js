@@ -8,6 +8,9 @@ const upload = require('../middleware/uploadImage');
 const NoticeController = require('../controllers/NoticeController');
 const ComplaintsController = require('../controllers/ComplaintsController');
 const ApartamentsController = require('../controllers/ApartamentsController');
+const LocationController = require('../controllers/LocationController');
+const MeetingsController = require('../controllers/MeetingsController');
+
 // notices
 // criar aviso
 router.post('/notice', NoticeController.createNotice);
@@ -35,5 +38,26 @@ router.post('/apartament', ApartamentsController.createApartament);
 router.get('/apartaments', ApartamentsController.apartamentsAll);
 //atualizar apartamento
 router.put('/apartaments/:id', ApartamentsController.updateApartaments);
+
+//Location
+//criar locação
+router.post('/location/:id', LocationController.createLocation);
+// editar locação
+router.put('/location/:id', LocationController.updateLocation);
+// excluir reserva
+router.delete('/location/delete/:id', LocationController.deleteLocation);
+// exibir locações
+router.get('/location', LocationController.getLocations);
+
+//Meetings
+//criar reunião
+router.post('/meeting', MeetingsController.createMeeting);
+// atualizar reunião
+router.put('/meeting/:id', MeetingsController.updateMeeting);
+// exibir reuniões
+router.get('/meetings', MeetingsController.getMeetings);
+//excluir Reunião
+router.delete('/meeting/:id', MeetingsController.deleteMeeting);
+
 
 module.exports = router;

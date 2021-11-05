@@ -5,7 +5,7 @@ Criação da api para o projeto condominium.
 
 Tecnologias usadas:
 
-Node.js, Sequelize, banco de dados Mysql
+✔ Node.js, Sequelize, banco de dados Mysql
 
 Api contara com as rotas:
 

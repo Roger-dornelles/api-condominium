@@ -3,6 +3,10 @@ EM DESENVOLVIMENTO 🚨🚨
 
 Criação da api para o projeto condominium.
 
+Tecnologias usadas:
+
+✔ Node.js, Sequelize, banco de dados Mysql
+
 Api contara com as rotas:
 
 ✅Apartamentos:
@@ -18,13 +22,13 @@ Api contara com as rotas:
 -Adicionar, atualizar e deletar uma reclamação.
 
 
-🛑Locações:
+✅Locações:
 
--Em desenvolvimento.....
+-Adicionar, atualizar, deletar e exibir as reclamações.
 
-🛑Reuniões:
+✅Reuniões:
 
--Em desenvolvimento...
+-Adicionar, atualizar, deletar e exibir as reuniões.
 
 Para testar a API:
 

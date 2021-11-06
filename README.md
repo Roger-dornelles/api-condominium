@@ -5,7 +5,7 @@ Criação da api para o projeto condominium.
 
 Tecnologias usadas:
 
-✔ Node.js, Sequelize, banco de dados Mysql
+✔ Node.js, Passport, Jwt, Sequelize, banco de dados Mysql
 
 Api contara com as rotas:
 
@@ -29,6 +29,10 @@ Api contara com as rotas:
 ✅Reuniões:
 
 -Adicionar, atualizar, deletar e exibir as reuniões.
+
+✅Usuario:
+
+-Adicionar, atualizar, exibir e deletar usuario.
 
 Para testar a API:
 

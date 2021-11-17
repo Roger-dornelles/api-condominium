@@ -92,7 +92,7 @@ module.exports = {
       if(passwordCheck){
         let token = generateToken({id:user.id});
         res.status(200);
-        res.json({token})
+        res.json({id:user.id,token})
       }else{
         res.status(404);
         res.json({error:'Usuario invalido'});

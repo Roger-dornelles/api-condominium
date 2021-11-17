@@ -18,7 +18,7 @@ const errorHandler =(err,req,res,next) => {
   }else{
     res.json({error:'Ocorreu um erro.'});
   }
-}
+};
 
 const server = express();
 server.use(cors());

@@ -91,14 +91,14 @@ module.exports = {
 
       if(passwordCheck){
         let token = generateToken({id:user.id});
-        res.status(200);
+        res.status(201);
         res.json({id:user.id,token})
       }else{
-        res.status(404);
+        res.status(200);
         res.json({error:'Usuario invalido'});
       }
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Apartamento invalido'});
     }
 

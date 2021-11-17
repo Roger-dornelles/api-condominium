@@ -95,7 +95,7 @@ module.exports = {
         res.json({id:user.id,token})
       }else{
         res.status(200);
-        res.json({error:'Usuario invalido'});
+        res.json({error:'Senha invalida'});
       }
     }else{
       res.status(200);

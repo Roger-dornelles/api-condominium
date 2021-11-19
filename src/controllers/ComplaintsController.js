@@ -38,12 +38,12 @@ module.exports = {
         res.status(201)
         res.json({newComplaints})
       }else{
-        res.status(404);
+        res.status(200);
         res.json({error:'Precisa de descrição'})
       }
 
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Não autorizado'});
     }
   },
@@ -75,7 +75,7 @@ module.exports = {
       res.json({newComplaint})
 
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Reclamação não encontrada.'})
     }
   },
@@ -98,7 +98,7 @@ module.exports = {
       res.status(200);
       res.json({});
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Reclamação não encontrada.'});
     }
   }

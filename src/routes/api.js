@@ -46,6 +46,8 @@ router.put('/complaint/:id',privateRoute,upload.single('image'), ComplaintsContr
 router.get('/complaints',privateRoute, ComplaintsController.complaintsAll);
 //deletar reclamação
 router.delete('/complaint/:id',privateRoute, ComplaintsController.deleteComplaint);
+//exibir reclamação do usuario
+router.get('/user/complaints/:id',privateRoute,ComplaintsController.complaintsUser);
 
 //apartaments
 // adicionar apartamento

@@ -9,7 +9,7 @@ module.exports = {
       res.json({newNotice});
 
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Campos não preechidos...'})
     }
   },

@@ -101,9 +101,22 @@ module.exports = {
       res.status(200);
       res.json({error:'Reclamação não encontrada.'});
     }
+  },
+  // exibir reclamaçoes da usuario
+  complaintsUser: async (req,res)=>{
+    let { id } = req.params;
+    let user = await Apartaments.findOne({where: {id}});
+    if (user.id){
+      console.log('ID ',user.id);
+      let compareId = await Complaint.findAll({where:{userId: user.id}});
+      res.status(201);
+      res.json({compareId})
+      console.log(compareId);
+
+    }else{
+      res.status(200);
+      res.json({error:'Reclamação não encontrada.'})
+    }
   }
-
-
-
 
 }

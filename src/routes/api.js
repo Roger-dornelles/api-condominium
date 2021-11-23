@@ -56,6 +56,8 @@ router.post('/apartament',privateRoute, ApartamentsController.createApartament);
 router.get('/apartaments',privateRoute, ApartamentsController.apartamentsAll);
 //atualizar apartamento
 router.put('/apartaments/:id',privateRoute, ApartamentsController.updateApartaments);
+// exibir apartamento especifico pelo id
+router.get('/apartament/user/:id',privateRoute, ApartamentsController.userApartament);
 
 //Location
 //criar locação

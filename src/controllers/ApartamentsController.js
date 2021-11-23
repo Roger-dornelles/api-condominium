@@ -26,7 +26,7 @@ module.exports = {
   },
   // mostrar apartamentos
   apartamentsAll: async (req,res)=>{
-    let apartaments = await Apartaments.findAll();
+    let apartaments = await Apartaments.findAll({order:[['apartament','ASC']]});
     if(apartaments){
       res.status(200);
       res.json({apartaments});
@@ -59,8 +59,22 @@ module.exports = {
       res.json({newData});
 
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Apartamento não encontrado.'})
+    }
+  },
+  // exibir apartamento especifico pelo id
+  userApartament: async (req,res)=>{
+    let { id } = req.params;
+
+    let apartament = await Apartaments.findOne({where: {id}});
+
+    if(apartament){
+      res.status(201);
+      res.json({apartament})
+    }else{
+      res.status(200);
+      res.json({error:'Apartamento não encontrado...'})
     }
   }
 

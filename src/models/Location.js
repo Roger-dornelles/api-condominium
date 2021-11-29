@@ -19,6 +19,9 @@ const Location = sequelize.define('Location',{
     },
     date: {
       type:DataTypes.STRING
+    },
+    userId:{
+      type:DataTypes.STRING
     }
   },
   {

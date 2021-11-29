@@ -13,8 +13,8 @@ module.exports = {
   // criar reclamação
   createComplaint: async(req,res)=>{
 
-    let {description,conclusion,date_conclusion} = req.body;
-    let {id} = req.params;
+    let {description,conclusion,date_conclusion,image} = req.body;
+    let {id }= req.params;
 
     let userCheck = await Apartaments.findOne({
       where:{id}
@@ -29,12 +29,15 @@ module.exports = {
     }
 
     if(userCheck){
-      if(description !== ''){
-        let image = req.file.filename;
+      if(description){
         let userId = userCheck.id;
         let date_inicial = formatDate();
 
-        const newComplaints = await Complaint.create({description,image,userId,date_inicial,conclusion,date_conclusion});
+        if(!image ){
+          image = ''
+        }
+
+        const newComplaints = await Complaint.create({userId,description,image,date_inicial,conclusion,date_conclusion});
         res.status(201)
         res.json({newComplaints})
       }else{
@@ -52,32 +55,35 @@ module.exports = {
     let {id} = req.params;
     let { description, conclusion, image } = req.body;
 
-    let complaintCheck = await Complaint.findOne({
-      where:{id}
-    });
-
-    if(complaintCheck){
-
-      if(description){
-        complaintCheck.description = description;
-      };
-
-      if(conclusion){
-        complaintCheck.conclusion = conclusion;
-      };
-
-      if(image){
-        complaintCheck.image = req.file.filename;
+      let complaintCheck = await Complaint.findOne({
+        where:{id}
+      });
+  
+      if(complaintCheck){
+  
+        if(description){
+          complaintCheck.description = description;
+        };
+  
+        if(conclusion){  
+          complaintCheck.date_conclusion = formatDate();
+        }else{
+          complaintCheck.date_conclusion = 'Em Analise';
+        }
+  
+        if(image){
+          complaintCheck.image = req.file.filename;
+        }
+  
+        let newComplaint = await complaintCheck.save();
+        res.status(201);
+        res.json({newComplaint})
+  
+      }else{
+        res.status(200);
+        res.json({error:'Reclamação não encontrada.'})
       }
-
-      let newComplaint = await complaintCheck.save();
-      res.status(201);
-      res.json({newComplaint})
-
-    }else{
-      res.status(200);
-      res.json({error:'Reclamação não encontrada.'})
-    }
+    
   },
   // exibir reclamações
   complaintsAll: async (req,res)=>{

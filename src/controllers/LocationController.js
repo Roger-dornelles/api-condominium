@@ -15,7 +15,8 @@ module.exports = {
       if(area && date !== ''){
         let proprietary= idCheck.proprietary;
         let apartament= idCheck.apartament;
-        let newLocation = await Location.create({area,proprietary,apartament,date});
+        let userId = idCheck.id;
+        let newLocation = await Location.create({area,proprietary,apartament,date,userId});
         res.status(201);
         res.json({newLocation})
       }else{
@@ -68,15 +69,28 @@ module.exports = {
       res.json({error:'Reserva não encontrada'})
     }
   },
-  //exibir locações
+  //exibir todas locações
   getLocations: async(req,res)=>{
+
     let locations = await Location.findAll();
     if(locations){
-      res.status(200);
+      res.status(201);
       res.json({locations});
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Não há reservas...'})
+    }
+  },
+  // exibir locação especifica pelo id do usuario
+  getLocationUser: async(req,res)=>{
+    let {id} = req.params;
+    let userLocation = await Location.findAll({where: {userId:id}});
+    if(userLocation){
+      res.status(201);
+      res.json({userLocation});
+    }else{
+      res.status(200);
+      res.json({error:'Não há Reserva...'})
     }
   }
 

@@ -13,6 +13,9 @@ const Meeting = sequelize.define('Meeting',{
     date:{
       type:DataTypes.STRING
     },
+    schedule:{
+      type:DataTypes.STRING
+    },
     canceled:{
       type:DataTypes.BOOLEAN,
       defaultValue:false

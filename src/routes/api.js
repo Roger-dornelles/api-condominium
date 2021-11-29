@@ -68,6 +68,8 @@ router.put('/location/:id',privateRoute, LocationController.updateLocation);
 router.delete('/location/delete/:id',privateRoute, LocationController.deleteLocation);
 // exibir locações
 router.get('/location',privateRoute, LocationController.getLocations);
+//exibir locações do usuario especifico 
+router.get('/location/user/:id', privateRoute, LocationController.getLocationUser);
 
 //Meetings
 //criar reunião

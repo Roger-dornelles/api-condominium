@@ -1,17 +1,19 @@
 const Meeting = require('../models/Meeting');
+const Apartament = require('../models/Apartaments');
 
 module.exports = {
   createMeeting: async(req,res) => {
-      let { description, date} = req.body;
+      let { description, date, schedule} = req.body;
+      let { id } = req.params;
 
-      if(description && date) {
-        let meeting = await Meeting.create({ description,date});
-        res.status(201);
-        res.json({ meeting});
-      }else{
-        res.status(404);
-        res.json({error: 'Preencha todos os campos.'});
-    }
+        if(description && date) {
+          let meeting = await Meeting.create({id, description,date, schedule});
+          res.status(201);
+          res.json({ meeting});
+        }else{
+          res.status(404);
+          res.json({error: 'Preencha todos os campos.'});
+      }
   },
   // atualizar reunião
   updateMeeting: async (req,res)=>{
@@ -36,7 +38,7 @@ module.exports = {
       res.status(201);
       res.json({ meeting})
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Reunião não encontrada.'});
     }
   },
@@ -44,10 +46,10 @@ module.exports = {
   getMeetings: async(req,res) => {
     let meetings = await Meeting.findAll();
     if(meetings){
-      res.status(200);
+      res.status(201);
       res.json({meetings});
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Não há reuniões.'})
     }
   },
@@ -61,7 +63,7 @@ module.exports = {
       res.status(200);
       res.json({});
     }else{
-      res.status(404);
+      res.status(200);
       res.json({error:'Reunião não encontrada.'})
     }
   }

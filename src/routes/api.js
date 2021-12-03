@@ -21,11 +21,13 @@ router.post('/user/new', UserController.createUser);
 //exibir usuarios
 router.get('/user/list',privateRoute, UserController.getUserList);
 //atualizar dados do usuario
-router.put('/user/:id',privateRoute, UserController.updateUser);
+router.put('/user/info/:id',privateRoute, UserController.updateUser);
 //excluir usuario
 router.delete('/user/delete/:id',privateRoute, UserController.deleteUser);
 //login do usuario
-router.post('/user/signin', UserController.signin)
+router.post('/user/signin', UserController.signin);
+//exibir usuario especifico
+router.get('/user/info/:id',privateRoute, UserController.userInfo)
 
 // notices
 // criar aviso

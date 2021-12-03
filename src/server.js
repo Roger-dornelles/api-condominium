@@ -24,7 +24,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
-server.use(express.static(path.join(__dirname, './public')));
+server.use(express.static(path.join(__dirname, '../public')));
 server.use(passport.initialize())
 server.use('/',routes);
 server.use((req,res)=>{

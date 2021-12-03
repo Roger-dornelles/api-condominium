@@ -32,12 +32,8 @@ module.exports = {
       if(description){
         let userId = userCheck.id;
         let date_inicial = formatDate();
-        if(image !== undefined){
+        image = `http://localhost:5000/images/${req.file.filename}`
 
-          image = `http://localhost:5000/images/${req.file.filename}`
-        }else{
-          image = 'Sem Imagem'
-        }
 
         const newComplaints = await Complaint.create({userId,description,image,date_inicial,conclusion,date_conclusion});
         res.status(201)

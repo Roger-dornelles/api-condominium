@@ -6,16 +6,21 @@ const {generateToken} = require('../config/passport');
 module.exports = {
   //criar usuario
   createUser: async (req,res) => {
+    
     let { name, apartament, contact ,password } = req.body;
 
     if(name && contact && password && apartament) {
       password = await bcrypt.hashSync(password,10);
       let user = await User.create({name,apartament,password,contact});
-
+      await Apartaments.create({
+        proprietary: user.name,
+        apartament: user.apartament,
+        contact: user.contact
+      });
       if(user){
         let token = generateToken({id:user.id});
         res.status(200);
-        res.json({token, user});
+        res.json({token, id:user.id});
       }else{
         res.status(404);
         res.json({error:'Ocorreu um erro.'})

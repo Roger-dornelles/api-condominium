@@ -21,7 +21,7 @@ const errorHandler =(err,req,res,next) => {
 };
 
 const server = express();
-server.use(cors());
+server.use(cors("Access-Control-Allow-Origin", "*"));
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 server.use(express.static(path.join(__dirname, '../public')));

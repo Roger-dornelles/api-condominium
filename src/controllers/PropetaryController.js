@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const Apartaments = require('../models/Apartaments');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {generateToken} = require('../config/passport');
 
 module.exports = {

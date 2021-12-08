@@ -19,9 +19,14 @@ const errorHandler =(err,req,res,next) => {
     res.json({error:'Ocorreu um erro.'});
   }
 };
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
 
 const server = express();
-server.use(cors("Access-Control-Allow-Origin", "*"));
+server.use(cors(corsOptions));
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 server.use(express.static(path.join(__dirname, '../public')));

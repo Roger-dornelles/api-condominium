@@ -11,7 +11,7 @@ module.exports = {
       await sequelize.authenticate();
       console.log('funcionando a conexão')
     } catch (error) {
-      console.log('Error: ' ,error);
+      console.log('Erro de conexao: ' ,error);
     }
     
     let { name, apartament, contact ,password } = req.body;

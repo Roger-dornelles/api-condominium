@@ -1,5 +1,4 @@
 # api-condominium
-EM DESENVOLVIMENTO 🚨🚨
 
 Criação da api para o projeto condominium.
 

@@ -2,10 +2,17 @@ const User = require('../models/User');
 const Apartaments = require('../models/Apartaments');
 const bcrypt = require('bcryptjs');
 const {generateToken} = require('../config/passport');
+const sequelize = require('../instances/mysql');
 
 module.exports = {
   //criar usuario
   createUser: async (req,res) => {
+    try {
+      await sequelize.authenticate();
+      console.log('funcionando a conexão')
+    } catch (error) {
+      console.log('Error: ' ,error);
+    }
     
     let { name, apartament, contact ,password } = req.body;
 

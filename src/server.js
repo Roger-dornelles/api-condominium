@@ -32,7 +32,7 @@ server.use((req,res)=>{
   res.json({error:'Endpoint não encontrado'})
 });
 server.use(errorHandler)
-server.listen(process.env.PORT,() => {
+server.listen(process.env.PORT || 3005,() => {
   console.log('Rodando na porta ', process.env.BASE);
 })
 
